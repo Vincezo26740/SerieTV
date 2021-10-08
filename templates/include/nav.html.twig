@@ -1,0 +1,17 @@
+<nav>
+    <ul>
+        <li><a href="{{ path('main_home') }}" title="Home">Home</a></li>
+        <li><a href="{{ url('main_test') }}" title="Test">Test</a></li>
+        <li><a href="{{ path('serie_list') }}" title="All Series">All Series</a></li>
+        {% if(app.user) %}
+            <li><a href="{{ url('serie_create') }}" title="Create new serie">Create new serie</a></li>
+            <li><a href="{{ path('season_create') }}" title="Create Season">Create Season</a></li>
+            <li><a href="{{ path('app_logout') }}" title="log out"> Déconnexion {{ app.user.firstName }}</a></li>
+            {% if(is_granted("ROLE_ADMIN")) %}
+                <li><a href="{{ path('admin_dashboard') }}" title="Dashboard Amin">DashBoard Admin</a></li>
+                {% endif %}
+        {% else %}
+            <li><a href="{{ path('app_login') }}" title="login"> Login</a></li>
+        {% endif %}
+    </ul>
+</nav>

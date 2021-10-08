@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+<div>
+
+    {# todo: formulaire de création #}
+</div>
+{% endblock %}
+
+{% block body %}
+    {{ form_start(serieForm) }}
+    {{ form_widget(serieForm) }}
+    <button>Create !</button>
+    {{ form_end(serieForm) }}
+Create new series | {{ parent() }}
+{% endblock %}
+

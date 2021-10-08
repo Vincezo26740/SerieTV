@@ -1,0 +1,48 @@
+{% extends '/base.html.twig' %}
+
+{% block body %}
+    <h1>Coucou de la page Test !!</h1>
+
+    {{ mySerie.title }}
+
+    {# Affichage de l'année een cours #}
+    {# "now" correspond à aujourd'hui #}
+    {# "+1 year" met 1 and de plus à l'année en cours #}
+    <div>{{ "now"|date('Y') }}</div>
+    <div>{{ "now"|date('m') }}</div>
+    <div>{{ "now"|date('d') }}</div>
+
+
+    {# Commentaires non visibles en code source #}
+
+    {% set name="Vincent" %}
+
+    <h2>{{ name | upper }}</h2>
+    <h2>{{ name | length }}</h2>
+
+    {# Tableau de couleurs #}
+    {% set colors=["blue","red","orange"] %}
+    {% for color in colors %}
+        {# index #}
+        loop en cours : {{ loop.index }}
+        {# nombre de couleurs #}
+        nombre de couleurs : {{ colors|length }}
+        <div style="background-color: {{ color }}">{{ color }}</div>
+        <div>{{ colors|join(' / ') }}</div>
+        <div>controle si dernier loop : {{ loop.last }}</div>
+        {# Affiche 1 donc true #}
+    {% endfor %}
+
+    {% set book ={
+        title :'Asterix et le chaudron',
+        year :'1980',
+        author : 'Moi'
+    } %}
+
+    <h3>{{ book.title }}</h3>
+    {% for key,value in book %}
+        {{ key }} : {{ value }}<br>
+    {% endfor %}
+{% endblock %}
+
+{% block title %} Page De Test  {% endblock %}
